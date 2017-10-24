@@ -10,8 +10,8 @@ package minuteur;
  * @author ytricha
  */
 public class MinuteurModele {
-  public static  int MAX_HEURE = 23;
-  public  static  int MAX_MINSEC = 59 ;
+  public static  int MAX_HEURE = 24;
+  public  static  int MAX_MINSEC = 60 ;
   
   int minute;
   int heure;

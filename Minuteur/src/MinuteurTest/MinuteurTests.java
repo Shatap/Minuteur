@@ -1,12 +1,11 @@
 package MinuteurTest;
 
-import static org.junit.Assert.*;
-
+import minuteur.MinuteurControleur;
+import minuteur.MinuteurModele;
 import org.junit.Before;
 import org.junit.Test;
 
-import minuteur.MinuteurControleur;
-import minuteur.MinuteurModele;
+import static org.junit.Assert.*;
 
 public class MinuteurTests {
 	static int HMS_VALEUR = 10;
@@ -75,7 +74,7 @@ public class MinuteurTests {
 	// tester la m�thode incHeure(x) avec x = 1;
 	public void testIncHeure() {
 		/* 23h plus une heure donne 0h */
-		controleur.setHeure(MinuteurModele.MAX_HEURE  -  UN);
+		controleur.setHeure(MinuteurModele.MAX_HEURE - 1);
 		controleur.incHeure(UN);
 		assertEquals(ZERO, modele.getHeure());
 		/* 0h plus une heure donne 1h */
