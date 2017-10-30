@@ -22,51 +22,34 @@ import java.util.EventListener;
  *
  * @author ytricha
  */
-public class Minuteur extends Application {
-
-    /**
-     * @param args the command line arguments
-     */
-
-    TextField DispHeure = new TextField();
-    TextField DispMinute = new TextField();
-    MinuteurModele modele = new MinuteurModele(0,0,0);
+public class Minuteur {
+    static TextField MinSec = new TextField();
+    static  MinuteurModele modele = new MinuteurModele(0,0,0);
     MinuteurControleur controleur = new MinuteurControleur(modele);
-    public static void main(String[] args) {
-        launch(args);
-    }
-    @Override
-    public void start( Stage PrimaryStage)
-    {
 
+    Stage stage = new Stage();
+    Group group = new Group();
+    Scene scene = new Scene(group,220,30);
 
-        AffichageHeure affHeure = new AffichageHeure(modele,controleur);
-        AffichageMinute affMinute = new AffichageMinute(modele,controleur);
+    Minuteur() {
+        stage.setX(300);
+        stage.setY(200);
 
-
-
-
-
-
-        Stage stage = new Stage();
-        Group group = new Group();
-        Scene scene = new Scene(group,220,60);
-        stage.setTitle("Minuteur");
-
-
-
-
-        DispHeure.setMaxSize(50,40);
-        DispHeure.setLayoutX(20);
-
-
-        DispHeure.setText(Integer.toString(modele.getHeure())+" : " + Integer.toString(modele.getMinute()));
-        group.getChildren().add(DispHeure);
+        stage.setTitle("Minutes : Secondes");
+        MinSec.setMaxSize(90,40);
+        MinSec.setLayoutX(60);
+        MinSec.setText(Integer.toString(modele.getHeure())+" : " + Integer.toString(modele.getMinute()));
+        group.getChildren().add(MinSec);
         stage.setScene(scene);
         stage.show();
-
-
     }
+
+
+    public static void setChanges(){
+        MinSec.setText(Integer.toString(modele.getMinute())+" : " + Integer.toString(modele.getSeconde()));
+    }
+
+
 
    
 

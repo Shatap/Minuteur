@@ -12,11 +12,13 @@ import javafx.stage.Stage;
  */
 public class AffichageHeure  {
 
-    AffichageHeure(MinuteurModele modele, MinuteurControleur controleur){
+    AffichageHeure(Minuteur minuteur , Observer observer){
         Stage stage = new Stage();
+        stage.setX(100);
+        stage.setY(400);
         Group group = new Group();
         Scene scene = new Scene(group,220,30);
-        stage.setTitle("Affichage Heure");
+        stage.setTitle("HEURES :");
         Button incre= new Button("+");
         Button decre = new Button("-");
 
@@ -25,11 +27,11 @@ public class AffichageHeure  {
         group.getChildren().add(incre);
         TextField DispHeure = new TextField();
         DispHeure.setLayoutX(20);
-        DispHeure.setText(Integer.toString(modele.getHeure()));
+        DispHeure.setText(Integer.toString(minuteur.modele.getHeure()));
         group.getChildren().add(DispHeure);
         group.getChildren().add(decre);
-        incre.setOnAction((ActionEvent e)->{controleur.incHeure(1);DispHeure.setText(Integer.toString(modele.getHeure()));});
-        decre.setOnAction((ActionEvent e)->{controleur.incHeure(-1);DispHeure.setText(Integer.toString(modele.getHeure()));});
+        incre.setOnAction((ActionEvent e)->{minuteur.controleur.incHeure(1);DispHeure.setText(Integer.toString(minuteur.modele.getHeure()));observer.NotiferTout();});
+        decre.setOnAction((ActionEvent e)->{minuteur.controleur.incHeure(-1);DispHeure.setText(Integer.toString(minuteur.modele.getHeure()));observer.NotiferTout();});
         stage.setScene(scene);
         stage.show();
 
