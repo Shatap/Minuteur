@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 /**
  * Created by oka on 29/10/17.
  */
-public class AffichageHeure extends Minuteur {
+public class AffichageHeure  {
 
     AffichageHeure(MinuteurModele modele, MinuteurControleur controleur){
         Stage stage = new Stage();

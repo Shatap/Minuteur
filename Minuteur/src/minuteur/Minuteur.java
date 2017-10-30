@@ -27,14 +27,18 @@ public class Minuteur extends Application {
     /**
      * @param args the command line arguments
      */
+
+    TextField DispHeure = new TextField();
+    TextField DispMinute = new TextField();
+    MinuteurModele modele = new MinuteurModele(0,0,0);
+    MinuteurControleur controleur = new MinuteurControleur(modele);
     public static void main(String[] args) {
         launch(args);
     }
     @Override
     public void start( Stage PrimaryStage)
     {
-        MinuteurModele modele = new MinuteurModele(0,0,0);
-        MinuteurControleur controleur = new MinuteurControleur(modele);
+
 
         AffichageHeure affHeure = new AffichageHeure(modele,controleur);
         AffichageMinute affMinute = new AffichageMinute(modele,controleur);
@@ -49,20 +53,21 @@ public class Minuteur extends Application {
         Scene scene = new Scene(group,220,60);
         stage.setTitle("Minuteur");
 
-        
 
-        TextField DispHeure = new TextField();
-        TextField DispMinute = new TextField();
+
+
         DispHeure.setMaxSize(50,40);
         DispHeure.setLayoutX(20);
 
+
         DispHeure.setText(Integer.toString(modele.getHeure())+" : " + Integer.toString(modele.getMinute()));
         group.getChildren().add(DispHeure);
-
         stage.setScene(scene);
         stage.show();
 
 
     }
+
+   
 
 }

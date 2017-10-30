@@ -12,16 +12,17 @@ import javafx.stage.Stage;
  */
 public class AffichageMinute extends Minuteur {
 
+    Stage stage = new Stage();
+    Group group = new Group();
+    Scene scene = new Scene(group,220,30);
+
+    Button incre= new Button("+");
+    Button decre = new Button("-");
     AffichageMinute(MinuteurModele modele,MinuteurControleur controleur)
     {
-        Stage stage = new Stage();
-        Group group = new Group();
-        Scene scene = new Scene(group,220,30);
+
         stage.setTitle("Affichage Minute");
         stage.setX(300);
-        Button incre= new Button("+");
-        Button decre = new Button("-");
-
         incre.setLayoutX(190);
         decre.setLayoutX(0);
         group.getChildren().add(incre);
