@@ -11,11 +11,9 @@ import javafx.stage.Stage;
  * Created by oka on 29/10/17.
  */
 public class AffichageMinute  {
-
     Stage stage = new Stage();
     Group group = new Group();
     Scene scene = new Scene(group,220,30);
-
     Button incre= new Button("+");
     Button decre = new Button("-");
     AffichageMinute(Minuteur minuteur , Observer observer)

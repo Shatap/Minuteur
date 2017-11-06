@@ -1,12 +1,9 @@
 package minuteur;
 
 import javafx.application.Application;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class View extends Application {
+public class Main extends Application {
     public void start( Stage PrimaryStage)
     {
         Observer observer = new Observer();
