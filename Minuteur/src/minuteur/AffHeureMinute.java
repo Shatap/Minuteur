@@ -6,23 +6,21 @@
 package minuteur;
 
 
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  *
  * @author ytricha
  */
-public class Minuteur {
+public class AffHeureMinute extends View implements Observer {
     static TextField MinSec = new TextField();
-    static  MinuteurModele modele = new MinuteurModele(0,0,0);
-    MinuteurControleur controleur = new MinuteurControleur(modele);
-    Stage stage = new Stage();
-    Group group = new Group();
-    Scene scene = new Scene(group,220,30);
-    Minuteur() {
+    private MinuteurModele modele ;
+
+    AffHeureMinute(MinuteurModele m, MinuteurControleur controleur) {
+        modele = m;
         stage.setX(300);
         stage.setY(200);
         stage.setTitle("Minutes : Secondes");
@@ -35,12 +33,13 @@ public class Minuteur {
     }
 
 
-    public static void setChanges(){
+    public  void setChanges(){
         MinSec.setText(Integer.toString(modele.getMinute())+" : " + Integer.toString(modele.getSeconde()));
     }
 
 
-
-   
-
+    @Override
+    public void update(Observable o, Object arg) {
+    setChanges();
+    }
 }

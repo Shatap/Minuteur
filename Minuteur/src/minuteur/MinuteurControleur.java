@@ -73,9 +73,4 @@ public class MinuteurControleur {
         }
     }
 
-
-    public void notifyHour()
-    {
-
-    }
 }

@@ -1,32 +1,37 @@
 package minuteur;
 
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
-public class AffichageComplet {
-    Stage stage = new Stage();
-    Group group = new Group();
-    Scene scene = new Scene(group,220,30);
-    static TextField DispTot = new TextField();
-    static Minuteur minuteur;
+import java.util.Observable;
+import java.util.Observer;
 
 
-    AffichageComplet()
+public class AffichageComplet  extends View  implements Observer {
+    private static TextField DispTot = new TextField();
+    private MinuteurModele modele ;
+    AffichageComplet(MinuteurModele m,MinuteurControleur controleur)
     {
-        stage.setTitle("Minuteur");
+        modele = m;
+        stage.setTitle("AffHeureMinute");
         stage.setX(300);
         stage.setY(600);
         DispTot.setLayoutX(30);
-        DispTot.setText(Integer.toString(minuteur.modele.getHeure()) +
-                   " : " + Integer.toString(minuteur.modele.getMinute()) +
-                   " : " + Integer.toString(minuteur.modele.getSeconde()) );
+        DispTot.setText(Integer.toString(modele.getHeure()) +
+                " : " + Integer.toString(modele.getMinute()) +
+                " : " + Integer.toString(modele.getSeconde()) );
         group.getChildren().add(DispTot);
         stage.setScene(scene);
         stage.show();
     }
-    public static void setChanges(){
-        DispTot.setText(Integer.toString(minuteur.modele.getHeure()) + " : " + Integer.toString(minuteur.modele.getMinute())+" : " + Integer.toString(minuteur.modele.getSeconde()));
+
+    public  void setChanges(){
+        DispTot.setText(Integer.toString(modele.getHeure()) + " : " + Integer.toString(modele.getMinute())+" : " + Integer.toString(modele.getSeconde()));
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        setChanges();
+
     }
 }
+

@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class MinuteurTests {
+public class AffHeureMinuteTests {
 	static int HMS_VALEUR = 10;
 	static int ZERO = 0;
 	static int UN = 1;
